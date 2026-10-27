@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>presis — terminal markdown slides</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <div class="terminal" id="terminal">
+    <div class="titlebar">
+      <div class="title" id="deck-title">presis — ~/slides.md</div>
+      <div class="zoom-controls">
+        <button id="zoom-out-btn" class="term-btn zoom-btn" title="Zoom out (-)">−</button>
+        <span id="zoom-level" class="zoom-level" title="Reset zoom (0)">100%</span>
+        <button id="zoom-in-btn" class="term-btn zoom-btn" title="Zoom in (+)">+</button>
+      </div>
+      <div class="slide-counter"><span id="slide-current">1</span> / <span id="slide-total">1</span></div>
+    </div>
+
+    <div class="viewport">
+      <main id="slide" class="slide markdown-body" tabindex="-1"></main>
+    </div>
+
+    <div class="statusbar">
+      <div class="status-left">
+        <span id="status-mode">NORMAL</span>
+        <span class="sep">│</span>
+        <span id="status-hint">↵ / → next · ← prev · f fullscreen · +/- zoom</span>
+      </div>
+      <div class="status-right">
+        <a id="download-link" class="term-btn" href="https://villepynttari.github.io/presis/presis.zip" download title="Download presis.zip — everything needed to run this app, straight from the official GitHub Pages copy">⇩ download app (.zip)</a>
+        <button id="open-file-btn" class="term-btn" title="Open your own slides.md file from disk">📂 open deck</button>
+        <input type="file" id="file-input" accept=".md,.markdown,text/markdown" hidden>
+        <button id="prev-btn" class="term-btn" title="Previous slide (←)">‹ prev</button>
+        <button id="next-btn" class="term-btn primary" title="Next slide (Enter / →)">next ›</button>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Placeholder shown only if slides.md can't be found (no server, and no
+    file picked yet) and nothing was previously loaded. This is NOT meant
+    to be edited — your presentation content goes in slides.md instead.
+  -->
+  <script type="text/markdown" id="deck-source">
+# presis
+
+Edit **`slides.md`** to write your presentation — no code needed.
+
+---
+
+## No slides.md found
+
+This copy of presis couldn't load `slides.md` automatically (that only
+works when the page is served over `http://`/`https://`, not opened
+directly as a file).
+
+Click **📂 open deck** in the status bar below and choose your
+`slides.md` file.
+
+---
+
+## Don't have a slides.md yet?
+
+1. Make a copy of this folder
+2. Create a new text file named `slides.md` next to `index.html`
+3. Write your slides as Markdown, separating slides with a line
+   containing only `---`
+4. Click **📂 open deck** and select it
+  </script>
+
+  <script src="vendor/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
